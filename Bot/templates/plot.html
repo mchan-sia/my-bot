@@ -1,0 +1,79 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+<html lang="en">
+
+<head>
+
+  <title>Bot Interconnexion</title>
+
+  <!-- Latest compiled and minified CSS -->
+
+</head>
+<body>
+ 
+
+   {% for TAUX_ENR in ENR %}
+    <div>
+    
+        <p>publié: {{ TAUX_ENR.pays }}</p>
+        <p>taux: {{ TAUX_ENR.taux }}</p>
+
+    </div> 
+
+
+    <div class="header">
+     <h1>  <h1_head>Bot Interconnextion </h1_head></h1>
+        <img src="{% static 'img/logo3.png' %}" 
+             alt="My image"
+             class="images_petit"/>
+    </div> 
+    {% endfor %}
+
+
+
+    <div class="container">
+     <h1> Courbes </h1>
+        <div class="row" style="border: 1px solid black">
+            <div> {{CDC|safe}}</div>
+        </div>
+    </div>
+
+
+    <div class="container">
+     <h1> Carte </h1>
+            <div class="row" style="border: 1px solid black">
+                <div> {{MAP|safe}} </div>
+            </div>
+
+
+
+    <form id="myNameForm">
+       {% csrf_token %}
+       <input type="text" id="name" />
+       <input type="submit" value="submit" id="submitButton" />
+    </form>
+
+    <script>
+    $('#submitButton').click(function(event){
+         event.preventDefault(); //so that we stop normal form submit.
+         $.ajax(
+             url: 'myViewUrl',
+             type: 'post',
+             dataType: 'json',
+             data: $('form#myNameForm').serialize(),
+             success: function(data) {
+               doStuffWithDataHere(data);
+             }
+         );
+    });
+    </script>
+    
+
+
+
+</body>
+</html>
