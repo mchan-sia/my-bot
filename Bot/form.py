@@ -1,4 +1,9 @@
 from django import forms
 
-class EnrForm(forms.Form):
-    taux_form = forms.IntegerField(label='taux_form')
+from .models import TAUX_ENR
+
+class EnrForm(forms.ModelForm):
+
+    class Meta:
+        model = TAUX_ENR
+        fields = ['pays','taux',]

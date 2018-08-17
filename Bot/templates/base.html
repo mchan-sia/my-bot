@@ -1,0 +1,67 @@
+<html lang="en">
+
+<head>
+
+  <title>bbb</title>
+
+  <!-- Latest compiled and minified CSS -->
+
+</head>
+<body>
+ 
+    <h1>New post</h1>
+    <form id="new_Enr_form">
+
+    <div class="container">
+         <input type="text" id="mypays" size="1"/>
+    </div>
+
+    <div class="container">
+         <input type="text" id="mytaux" size="1"/>
+    </div>
+
+    <div class="container">
+         <input type="submit" value="AA" ONCLICK="ajax(event)">
+    </div>
+
+    </form>
+ <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+<script LANGUAGE = "JAVASCRIPT" type="text/javascript">
+
+function alerter2() {
+alert("j'ai cliqué");
+} 
+</script>
+
+<script LANGUAGE = "JAVASCRIPT" type="text/javascript">
+
+
+
+
+function ajax(event){
+	  event.preventDefault();
+        $.ajax({
+             url: "/plot2/",
+             method: "POST",
+			 data: {
+				mypays:$('#mypays').val(),
+				mytaux:$('#mytaux').val(),
+                       'csrfmiddlewaretoken':"{{ csrf_token }}"
+				
+			 },
+             success: function(){
+				alert("Create new User");
+                }
+
+		 
+     });
+};
+ </script>
+
+<script LANGUAGE = "JAVASCRIPT" type="text/javascript">
+
+ </script>
+
+</body>
+</html>

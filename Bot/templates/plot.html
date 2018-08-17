@@ -9,69 +9,90 @@
 <head>
 
   <title>Bot Interconnexion</title>
-
-  <!-- Latest compiled and minified CSS -->
-
+   <!-- Script pour plotly  -->
+   <script type="text/javascript" src="{% static 'js/plotly.js' %}"></script>
+   <!-- Script pour jquerry  -->
+   <script type="text/javascript" src="{% static 'js/jquery min.js' %}"></script>
+   <!-- Script pour graph1.js  -->
+   <script type="text/javascript" src="{% static 'js/graph1.js' %}" ></script>
+   <!-- Script pour map.js  -->
+   <script type="text/javascript" src="{% static 'js/map.js' %}" ></script>
 </head>
 <body>
  
 
-   {% for TAUX_ENR in ENR %}
-    <div>
-    
-        <p>publié: {{ TAUX_ENR.pays }}</p>
-        <p>taux: {{ TAUX_ENR.taux }}</p>
-
-    </div> 
-
-
+    <!-- Bandeau -->
     <div class="header">
      <h1>  <h1_head>Bot Interconnextion </h1_head></h1>
         <img src="{% static 'img/logo3.png' %}" 
              alt="My image"
              class="images_petit"/>
     </div> 
-    {% endfor %}
+
+  <!-- graphique map.js -->
+  <div class="container" id="myDiv_map" >
+    
+  </div>
+
+
+  <!-- graphique graph1.js -->
+  <div class="container" id="myDiv">
+     <script type="text/javascript"> makeplot(10) </script>
+  </div>
 
 
 
-    <div class="container">
-     <h1> Courbes </h1>
-        <div class="row" style="border: 1px solid black">
-            <div> {{CDC|safe}}</div>
-        </div>
+
+  <!-- formulaire.js -->
+  <h1>New taux</h1>
+    <form id="new_Enr_form"> {% csrf_token %}
+
+
+    <div class="slidecontainer">
+      <input id="mytaux2" type="range" min="1" max="25" value="10"  onchange="ajax(event)" >  Value: <span id="value_mytaux2"></span>
+
     </div>
-
-
-    <div class="container">
-     <h1> Carte </h1>
-            <div class="row" style="border: 1px solid black">
-                <div> {{MAP|safe}} </div>
-            </div>
-
-
-
-    <form id="myNameForm">
-       {% csrf_token %}
-       <input type="text" id="name" />
-       <input type="submit" value="submit" id="submitButton" />
     </form>
 
+
+   <!-- Script Valeur box -->
     <script>
-    $('#submitButton').click(function(event){
-         event.preventDefault(); //so that we stop normal form submit.
-         $.ajax(
-             url: 'myViewUrl',
-             type: 'post',
-             dataType: 'json',
-             data: $('form#myNameForm').serialize(),
-             success: function(data) {
-               doStuffWithDataHere(data);
-             }
-         );
-    });
+        var slider = document.getElementById("mytaux2");
+        var output = document.getElementById("value_mytaux2");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
     </script>
+
+
+   
+   <!-- Script AJAX -->
+   <script type="text/javascript">
+    function ajax(event){
+            var new_taux=$('#mytaux2').val()
+    	  event.preventDefault();
+            $.ajax({
+                 url: "/plot2/",
+                 method: "POST",
+    			 data: {
+    				
+    				mytaux:$('#mytaux2').val(),
     
+                           'csrfmiddlewaretoken':"{{ csrf_token }}"
+    				
+    			 },
+                 success : function(data)
+        {   // alert("Create new User 1")
+            makeplot(new_taux)
+            // alert("Succes new User 1");
+           
+            }
+    		 
+         });
+    
+   };</script>
 
 
 

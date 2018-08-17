@@ -1,39 +1,13 @@
-#from django.shortcuts import render
-#from django.views.generic import TemplateView
-
-# Create your views here.
-#class HomePageView(TemplateView):
-#    def get(self, request, **kwargs):
-#        return render(request, 'index2.html', context=None)
-
-
-#from django.views.generic import TemplateView
-#from . import plots
-
-
-#class Plot1DView(TemplateView):
- #   template_name = "plot.html"
-#
- #   def get_context_data(self, **kwargs):
-       # Call the base implementation first to get a context
-#        context = super(Plot1DView, self).get_context_data(**kwargs)
- #   
- #       plot_div = plots.plot1d()
- #       
- #       context['plot'] =plot_div
- #             
- #       return context
-
-
-
 from . import plots
 from .models import TAUX_ENR
 
 from django.shortcuts import render
 from .form import EnrForm
-  
+from django.http import HttpResponse 
+
+
+
 def Enr_list(request):
-    
        
        map_div = plots.plotmap()
        Enr = TAUX_ENR.objects.filter(pays='France')
@@ -49,14 +23,35 @@ def Enr_list(request):
        return render(request, 'plot.html',context)    
 
 
-def MyAjaxView(request):
-    if request.is_ajax():
-         if request.method == 'GET':
-             # If it was a GET
-             print (request.GET)
-         elif request.method == 'POST':
-             # Here we can access the POST data
-             print (request.POST)
+def Enr_new(request):
+
+    if request.method == "POST":
+       form = EnrForm(request.POST)
+       TAUX_ENR.objects.filter(pays='France').delete()     
+       
+       if form.is_valid():
+          form.save()
+
+          return render(request, 'plot.html', {'form': form})
+
     else:
-         doSomeOtherStuff()
-    return render_to_response('mytemplate.html', some_context_maybe, context_instance=RequestContext(request))
+        form = EnrForm()    
+    return render(request, 'Enr.html', {'form': form})
+
+
+def change_taux(request):
+    if request.method == "POST":
+        mypays = 'France'
+        mytaux = request.POST['mytaux']
+        
+        
+        TAUX_ENR.objects.filter(pays=mypays).delete()     
+        TAUX_ENR.objects.create(
+            pays = mypays,
+            taux = int(mytaux)
+            )        
+    return HttpResponse('')
+
+def base(request):
+    template="base.html"
+    return render(request,template)

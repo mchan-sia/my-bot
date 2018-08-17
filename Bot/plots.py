@@ -35,7 +35,7 @@ def plotmap():
    
 
 
-    df = pd.read_csv('C:/Users/mc437d8n/Documents/Gratuiciels/WINPYTHON.3355/python-3.3.5/Scripts/BotInterco/USA.csv',sep=';')
+    df = pd.read_csv('C:/Users/mchan/mysite/USA.csv',sep=';')
 
     for col in df.columns:
         df[col] = df[col].astype(str)
