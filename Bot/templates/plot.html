@@ -23,7 +23,7 @@
 
     <!-- Bandeau -->
     <div class="header">
-     <h1>  <h1_head>Bot Interconnextion </h1_head></h1>
+     <h1>  <h1_head>Bot Interconnexion </h1_head></h1>
         <img src="{% static 'img/logo3.png' %}" 
              alt="My image"
              class="images_petit"/>
@@ -40,6 +40,12 @@
      <script type="text/javascript"> makeplot(10) </script>
   </div>
 
+
+    <div class="container">
+      Optimisation : <div class="container" id="Optim">{{OPTIM}}  </div>
+    </div>
+      
+      
 
 
 
@@ -83,9 +89,11 @@
                            'csrfmiddlewaretoken':"{{ csrf_token }}"
     				
     			 },
+                 dataType: "json", 
                  success : function(data)
         {   // alert("Create new User 1")
             makeplot(new_taux)
+            document.getElementById("Optim").innerHTML = data.optim
             // alert("Succes new User 1");
            
             }
