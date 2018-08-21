@@ -1,25 +1,21 @@
-from . import plots
-from .models import TAUX_ENR
+
+from .models import TAUX_ENR, OPTIM_ENR
 
 from django.shortcuts import render
 from .form import EnrForm
-from django.http import HttpResponse 
+from django.http import HttpResponse,JsonResponse 
 
-
+from . import verre_pulp_django
 
 def Enr_list(request):
-       
-       map_div = plots.plotmap()
-       Enr = TAUX_ENR.objects.filter(pays='France')
+
        donnees_taux=TAUX_ENR.objects.get(pays='France')
        taux= donnees_taux.taux
-       plot_div = plots.plot1d(taux)
+
+       val_optim=verre_pulp_django.OPTIM(int(taux))
        context={}  
        
-       context['CDC'] = plot_div
-       context['MAP'] = map_div
-       context['ENR'] = Enr
-       context['TAUX']= taux
+       context['OPTIM'] = val_optim
        return render(request, 'plot.html',context)    
 
 
@@ -44,13 +40,24 @@ def change_taux(request):
         mypays = 'France'
         mytaux = request.POST['mytaux']
         
+        OPTIM_ENR.objects.filter(pays=mypays).delete()     
+        object_optim=OPTIM_ENR.objects.create(
+            pays = mypays,
+            optim = verre_pulp_django.OPTIM(int(mytaux))
+            )        
+        
         
         TAUX_ENR.objects.filter(pays=mypays).delete()     
         TAUX_ENR.objects.create(
             pays = mypays,
             taux = int(mytaux)
-            )        
-    return HttpResponse('')
+            )
+            
+        data = {
+            'optim': object_optim.optim
+            }       
+            
+    return JsonResponse(data)
 
 def base(request):
     template="base.html"
