@@ -1,108 +1,298 @@
-
-
-{% load static %}
-
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
-<html lang="en">
-
+<html>
 <head>
-
-  <title>Bot Interconnexion</title>
-   <!-- Script pour plotly  -->
-   <script type="text/javascript" src="{% static 'js/plotly.js' %}"></script>
-   <!-- Script pour jquerry  -->
-   <script type="text/javascript" src="{% static 'js/jquery min.js' %}"></script>
-   <!-- Script pour graph1.js  -->
-   <script type="text/javascript" src="{% static 'js/graph1.js' %}" ></script>
-   <!-- Script pour map.js  -->
-   <script type="text/javascript" src="{% static 'js/map.js' %}" ></script>
+	<title>Sialab Platform - Bot Interconnexion</title>
 </head>
 <body>
+	{% load static %}
+
+ <!-- SIALAB -->
+	<link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/sialab.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/dashboard_agregat.css' %}" rel="stylesheet" type="text/css">
+
+<!-- Bootstrap css -->
+	<link href="{% static 'css/bootstrap_slider_min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/bootstrap_slider.css' %}" rel="stylesheet" type="text/css">
+
+<!-- Script pour plotly  -->
+	<script src="{% static 'js/plotly.js' %}" type="text/javascript">
+	</script> 
+
+<!-- Script pour jquerry  -->
+	 
+	<script src="{% static 'js/jquery min.js' %}" type="text/javascript">
+	</script>
+
+ <!-- Script pour graph1.js  -->
+	 
+	<script src="{% static 'js/graph1.js' %}" type="text/javascript">
+	</script>
+
+ <!-- Script pour map.js  -->
+	 
+	<script src="{% static 'js/map.js' %}" type="text/javascript">
+	</script> 
+
+<!-- Script pour bootstrap min.js  -->
+	 
+	<script src="{% static 'js/bootstrap min.js' %}" type="text/javascript">
+	</script>
+
+ <!-- Script pour Slider.js  -->
+	 
+	<script src="{% static 'js/bootstrap_slider.js' %}" type="text/javascript">
+	</script> 
+	<script src="{% static 'js/slidebar.js' %}" type="text/javascript">
+	</script>
+
+
+
+     <!-- Bandeau -->
+	<header>
+		<div style="text-align:center;">
+			Bot Interconnexion
+		</div>
+		<div style="text-align:left;margin-top:-30px">
+			<a href="http://datascience-lab.sia-partners.com" style="padding-bottom:5px"><b><font color="white" face='calibri' id="ds-link" size="5">Data Science Lab</font></b></a>
+		</div>
+		<div style="text-align:right;margin-top:-35px">
+			<a href="http://sia-partners.com/digital-assets/data-science-lab" style="padding-bottom:0px"><img height="30px" id="logo_sia_partners" src="{% static 'img/logo3.png' %}" style="margin-right:100px" width="165px"></a>
+		</div>
+	</header><!-- formulaire.js -->
+	<div id="content">
+		<div class="tab-content">
+			<div class="tab-pane active" id="tab-dashboard" role="tabpanel">
+				<div class="container-fluid" style=" padding-top:70px">
+					<div class="row" style="margin-top:10px;">
+						<div class="col-md-9"></div>
+					</div>
+					<div class="row" style="height:10px;"></div>
+
+					<div class="row">
+
+						<div class="col-md-4">
+							<div class="panel panel-default panel-hidden-print">
+								<div class="panel-heading">
+									<span class="pull-left"><i class="glyphicon glyphicon-info-sign" id="info_bulle_1"></i></span>
+
+									<h3 class="panel-title text-center">Taux d'énergie renouvelable</h3>
+								</div>
+
+
+								<div class="panel-body">
+									<div class="row" style="height:10px">
+									</div>
+
+
+                                                    <table class="table table-sm table-striped">
+                                                    		<tbody>
+                                                    			<tr>
+                                                    				<th class="col-md-3" scope="row" style="text-align:center;">
+                                                    					<h5>Taux_FR (%)</h5>
+                                                    				</th>
+                                                    
+                                                    				<td class="col-md-6" style="text-align:center; vertical-align:bottom; padding-bottom:20px;padding-left:20px;">
+                                                    					<form id="new_Enr_form" name="new_Enr_form">
+                                                    						{% csrf_token %}
+                                                    
+                                                    						<div>
+                                                    							<input id="mytaux1" max="25" min="1" onchange="ajax(event)" type="text" value="10">
+                                                    						</div>
+                                                    					</form>
+                                                    				</td>
+                                                    			</tr>
+
+                                                    			<tr>
+                                                    				<th class="col-md-3" scope="row" style="text-align:center;">
+                                                    					<h5>Taux_ALL (%)</h5>
+                                                    				</th>
+                                                    
+                                                    				<td class="col-md-6" style="text-align:center; vertical-align:bottom; padding-bottom:20px;padding-left:20px;">
+                                                    					<form id="new_Enr_form" name="new_Enr_form2">
+                                                    						{% csrf_token %}
+                                                    
+                                                    						<div>
+                                                    							<input id="mytaux2" max="25" min="1" onchange="ajax(event)" type="text" value="10">
+                                                    						</div>
+                                                    					</form>
+                                                    				</td>
+                                                    			</tr>                                                    
  
+                                                    			<tr>
+                                                    				<th class="col-md-3" scope="row" style="text-align:center;">
+                                                    					<h5>Taux_BEL (%)</h5>
+                                                    				</th>
+                                                    
+                                                    				<td class="col-md-6" style="text-align:center; vertical-align:bottom; padding-bottom:20px;padding-left:20px;">
+                                                    					<form id="new_Enr_form" name="new_Enr_form3">
+                                                    						{% csrf_token %}
+                                                    
+                                                    						<div>
+                                                    							<input id="mytaux3" max="25" min="1" onchange="ajax(event)" type="text" value="10">
+                                                    						</div>
+                                                    					</form>
+                                                    				</td>
+                                                    			</tr>                                                       
+                                                    		</tbody>
+                                                    	</table>
+								</div>
 
-    <!-- Bandeau -->
-    <div class="header">
-     <h1>  <h1_head>Bot Interconnexion </h1_head></h1>
-        <img src="{% static 'img/logo3.png' %}" 
-             alt="My image"
-             class="images_petit"/>
-    </div> 
+							</div>
+						<div >
+							<div class="panel panel-default panel-hidden-print">
+								<div class="panel-heading">
+									<span class="pull-left"><i class="glyphicon glyphicon-info-sign" id="info_bulle_4"></i></span>
 
-  <!-- graphique map.js -->
-  <div class="container" id="myDiv_map" >
-    
-  </div>
-
-
-  <!-- graphique graph1.js -->
-  <div class="container" id="myDiv">
-     <script type="text/javascript"> makeplot(10) </script>
-  </div>
-
-
-    <div class="container">
-      Optimisation : <div class="container" id="Optim">{{OPTIM}}  </div>
-    </div>
-      
-      
-
-
-
-  <!-- formulaire.js -->
-  <h1>New taux</h1>
-    <form id="new_Enr_form"> {% csrf_token %}
+									<h3 class="panel-title text-center">Choix des NTC</h3>
+								</div>
 
 
-    <div class="slidecontainer">
-      <input id="mytaux2" type="range" min="1" max="25" value="10"  onchange="ajax(event)" >  Value: <span id="value_mytaux2"></span>
-
-    </div>
-    </form>
+								<div class="panel-body">
+									<div class="row" style="height:10px">
+									</div>
 
 
-   <!-- Script Valeur box -->
-    <script>
-        var slider = document.getElementById("mytaux2");
-        var output = document.getElementById("value_mytaux2");
-        output.innerHTML = slider.value;
+                                                    <table class="table table-sm table-striped">
+                                                    		<tbody>
+                                                    			<tr>
+                                                    				<th class="col-md-3" scope="row" style="text-align:center;">
+                                                    					<h5>NTC_FR-ALL (MW) </h5>
+                                                    				</th>
+                                                    
+                                                    				<td class="col-md-6" style="text-align:center; vertical-align:bottom; padding-bottom:20px;padding-left:20px;">
+                                                    					<form id="new_NTC_form" name="new_NTC_form1">
+                                                    						{% csrf_token %}
+                                                    
+                                                    						<div>
+                                                    							<input id="myNTC1" max="25" min="1" onchange="ajax(event)" type="text" value="10">
+                                                    						</div>
+                                                    					</form>
+                                                    				</td>
+                                                    			</tr>
 
-        slider.oninput = function() {
-        output.innerHTML = this.value;
-    }
-    </script>
+                                                    			<tr>
+                                                    				<th class="col-md-3" scope="row" style="text-align:center;">
+                                                    					<h5>NTC_FR-BEL (MW)</h5>
+                                                    				</th>
+                                                    
+                                                    				<td class="col-md-6" style="text-align:center; vertical-align:bottom; padding-bottom:20px;padding-left:20px;">
+                                                    					<form id="new_NTC_form" name="new_NTC_form2">
+                                                    						{% csrf_token %}
+                                                    
+                                                    						<div>
+                                                    							<input id="myNTC2" max="25" min="1" onchange="ajax(event)" type="text" value="10">
+                                                    						</div>
+                                                    					</form>
+                                                    				</td>
+                                                    			</tr>                                                    
+ 
+                                                    			<tr>
+                                                    				<th class="col-md-3" scope="row" style="text-align:center;">
+                                                    					<h5>NTC_ALL-BEL (MW)  </h5>
+                                                    				</th>
+                                                    
+                                                    				<td class="col-md-6" style="text-align:center; vertical-align:bottom; padding-bottom:20px;padding-left:20px;">
+                                                    					<form id="new_NTC_form" name="new_NTC_form3">
+                                                    						{% csrf_token %}
+                                                    
+                                                    						<div>
+                                                    							<input id="myNTC3" max="25" min="1" onchange="ajax(event)" type="text" value="10">
+                                                    						</div>
+                                                    					</form>
+                                                    				</td>
+                                                    			</tr>                                                       
+                                                    		</tbody>
+                                                    	</table>
+								</div>
+							</div>
+
+						</div>
+						</div>
 
 
-   
-   <!-- Script AJAX -->
-   <script type="text/javascript">
-    function ajax(event){
-            var new_taux=$('#mytaux2').val()
-    	  event.preventDefault();
-            $.ajax({
-                 url: "/plot2/",
-                 method: "POST",
-    			 data: {
-    				
-    				mytaux:$('#mytaux2').val(),
-    
-                           'csrfmiddlewaretoken':"{{ csrf_token }}"
-    				
-    			 },
-                 dataType: "json", 
-                 success : function(data)
-        {   // alert("Create new User 1")
-            makeplot(new_taux)
-            document.getElementById("Optim").innerHTML = data.optim
-            // alert("Succes new User 1");
-           
-            }
-    		 
-         });
-    
-   };</script>
+						<div class="col-md-4">
+							<div class="panel panel-default panel-hidden-print">
+								<div class="panel-heading">
+									<span class="pull-left"><i class="glyphicon glyphicon-info-sign" id="info_bulle_2"></i></span>
+
+									<h3 class="panel-title text-center">Courbe des prix spots</h3>
+								</div>
+
+
+								<div class="panel-body" style="padding-bottom: 0px;">
+									 <div id="CDC">
+                                                 <script type="text/javascript"> makeplot(10) </script>
+                                                      </div>
+									
+								</div>
+                                           
+                                                    
+							</div>
+                                        Optimisation : <div class="container" id="Optim">{{OPTIM}}  </div>
+						</div>
+
+
+						<div class="col-md-4">
+							<div class="panel panel-default panel-hidden-print">
+								<div class="panel-heading">
+									<span class="pull-left"><i class="glyphicon glyphicon-info-sign" id="info_bulle_3"></i></span>
+
+									<h3 class="panel-title text-center">Carte Europe</h3>
+								</div>
+
+
+								<div class="panel-body" style="padding-bottom: 0px;">
+									<div id="myDiv_map" ></div>
+									</div>
+								</div>
+							</div>
 
 
 
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+<!-- Script AJAX -->
+	 
+	<script type="text/javascript">
+	                                function ajax(event){
+	                                        var new_taux1=$('#mytaux1').val()
+	                                     event.preventDefault();
+	                                        $.ajax({
+	                                             url: "/plot2/",
+	                                             method: "POST",
+	                                            data: {
+	                                               
+	                                               mytaux1:$('#mytaux1').val(),
+            	                                    mytaux2:$('#mytaux2').val(),
+                                                     mytaux3:$('#mytaux3').val(),
+
+	                                               myNTC1:$('#myNTC1').val(),
+            	                                    myNTC2:$('#myNTC2').val(),
+                                                     myNTC3:$('#myNTC3').val(),
+                                                       'csrfmiddlewaretoken':"{{ csrf_token }}"
+	                                               
+	                                            },
+	                                             dataType: "json", 
+	                                             success : function(data_optim)
+	                                    {   // alert("Create new User 1")
+	                                        makeplot(new_taux1)
+	                                        document.getElementById("Optim").innerHTML = data_optim.optimum
+	                                        // alert("Succes new User 1");
+	                                       
+	                                        }
+	                                        
+	                                     });
+	                                
+	                                };
+	</script>
 </body>
 </html>

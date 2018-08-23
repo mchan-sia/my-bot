@@ -18,3 +18,11 @@ class OPTIM_ENR(models.Model):
     def __str__(self):
         return self.pays
 
+
+class NTC_ENR(models.Model):
+    Import_Export = models.CharField(max_length=200,verbose_name ='Import_Export',default='',primary_key=True)
+    NTC = models.IntegerField (verbose_name ='NTC', default=0)
+      
+      
+    def __str__(self):
+        return self.Import_Export

@@ -1,0 +1,141 @@
+
+
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+   <head>
+      <title>Sialab Platform - Bot Interconnexion</title>
+
+      <!-- SIALAB -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+
+ <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_slider_min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap_slider.css' %}">
+
+      <!-- Script pour plotly  -->
+      <script type="text/javascript" src="{% static 'js/plotly.js' %}"></script>
+
+      <!-- Script pour jquerry  -->
+      <script type="text/javascript" src="{% static 'js/jquery min.js' %}"></script>
+
+      <!-- Script pour graph1.js  -->
+      <script type="text/javascript" src="{% static 'js/graph1.js' %}" ></script>
+      <!-- Script pour map.js  -->
+      <script type="text/javascript" src="{% static 'js/map.js' %}" ></script>
+   
+      <!-- Script pour bootstrap min.js  -->
+      <script type="text/javascript" src="{% static 'js/bootstrap min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'js/bootstrap_slider.js' %}"></script>
+
+      <!-- Script pour Slider.js  -->
+      <script type="text/javascript" src="{% static 'js/slidebar.js' %}"></script>
+
+
+
+
+
+
+   </head>
+
+
+
+
+   <body>
+
+
+
+
+
+      <!-- Bandeau -->
+      <header>
+
+		    <div class="col-md-7" style="text-align:center;">
+                Bot Interconnexion
+                </div>
+                <div style="text-align:left;margin-top:0px" class="col-md-2">
+                    <a href="http://datascience-lab.sia-partners.com" style="padding-bottom:5px"><b><font id="ds-link" size=5 face='calibri' color="white">Data Science Lab</font></b></a>
+                </div>
+                <div style="text-align:right;margin-top:0px" class="col-md-2">
+                    <a href="http://sia-partners.com/digital-assets/data-science-lab" style="padding-bottom:0px">
+                    <img id="logo_sia_partners" src="{% static 'img/logo3.png' %}"  width="165px" height="30px" style="margin-right:100px">
+                    </a>
+                </div>
+        </header>
+
+    
+
+      <!-- graphique map.js -->
+
+      <div class="container" id="myDiv_map" >
+      </div>
+
+      <!-- graphique graph1.js -->
+
+      <div class="container" id="myDiv">
+         <script type="text/javascript"> makeplot(10) </script>
+      </div>
+
+      <div class="container">
+         Optimisation : 
+         <div class="container" id="Optim">{{OPTIM}}  </div>
+      </div>
+      <!-- formulaire.js -->
+      <h1>New taux</h1>
+      <form id="new_Enr_form">
+         {% csrf_token %}
+         <div id="slider_en"></div>
+         <div>
+            <input id="mytaux2" type="text" min="1" max="25" value="10"  onchange="ajax(event)" >
+         </div>
+      </form>
+
+
+
+
+
+      <!-- Script Valeur box -->
+      <script>
+         var slider = document.getElementById("mytaux2");
+         output.innerHTML = slider.value;
+         
+         slider.oninput = function() {
+         output.innerHTML = this.value;
+         }
+      </script>
+      <!-- Script AJAX -->
+      <script type="text/javascript">
+         function ajax(event){
+                 var new_taux=$('#mytaux2').val()
+         	  event.preventDefault();
+                 $.ajax({
+                      url: "/plot2/",
+                      method: "POST",
+         			 data: {
+         				
+         				mytaux:$('#mytaux2').val(),
+         
+                                'csrfmiddlewaretoken':"{{ csrf_token }}"
+         				
+         			 },
+                      dataType: "json", 
+                      success : function(data_optim)
+             {   // alert("Create new User 1")
+                 makeplot(new_taux)
+                 document.getElementById("Optim").innerHTML = data_optim.optimum
+                 // alert("Succes new User 1");
+                
+                 }
+         		 
+              });
+         
+         };
+      </script>
+
+   </body>
+</html>
+
