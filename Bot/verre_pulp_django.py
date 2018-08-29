@@ -4,7 +4,8 @@ Created on Tue Aug 21 10:27:54 2018
 
 @author: MC437D8N
 """
-
+import pandas as pd
+import numpy as np
 from pulp import *
 from mypulp import *
 
@@ -51,6 +52,10 @@ def OPTIM(porte1):
     # 6. Optimisation du modele
     monmodele.solve()
     
-    # 7. Affichage des resultats
-
+    # 7. Affichage des resultats et sauvegarde des csv
+    df = pd.DataFrame.from_dict(profits, orient="index")
+    path=r'C:\Users\mc437d8n\Documents\Gratuiciels\WINPYTHON.3355\python-3.3.5\Scripts\BotInterco\mysite\Bot\media\data\test2.csv'
+    df.to_csv(path)
+    
+    
     return pulp.value(monmodele.objective)

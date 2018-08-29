@@ -18,7 +18,7 @@ def Enr_list(request):
        donnees_taux=TAUX_ENR.objects.get(pays='France')
        taux= donnees_taux.taux
 
-       val_optim=verre_pulp_django.OPTIM(int(taux))
+       val_optim=verre_pulp_django.OPTIM(taux)
        context={}  
        
        context['OPTIM'] = val_optim
@@ -58,40 +58,41 @@ def change_taux(request):
         taux = int(mytaux1))     
 
             
-        mypays2 = 'Allemagne'
-        mytaux2 = request.POST['mytaux2']
-        TAUX_ENR.objects.filter(pays=mypays2).update(
-                 taux = int(mytaux2))     
+    #     mypays2 = 'Allemagne'
+    #     mytaux2 = request.POST['mytaux2']
+    #    TAUX_ENR.objects.filter(pays=mypays2).update(
+    #             taux = int(mytaux2))     
 
 
-        mypays3 = 'Belgique'
-        mytaux3 = request.POST['mytaux3']
-        TAUX_ENR.objects.filter(pays=mypays3).update(
-        taux = int(mytaux3))     
+   #     mypays3 = 'Belgique'
+   #      mytaux3 = request.POST['mytaux3']
+   #     TAUX_ENR.objects.filter(pays=mypays3).update(
+   #     taux = int(mytaux3))     
 
 
 # Changement des NTC
 
-        Import_Export1 = 'FR<>BEL'
-        myNTC1 = request.POST['myNTC1']
-        NTC_ENR.objects.filter(Import_Export=Import_Export1).update(
-        NTC = int(myNTC1))     
+    #    Import_Export1 = 'FR<>BEL'
+    #    myNTC1 = request.POST['myNTC1']
+     #   NTC_ENR.objects.filter(Import_Export=Import_Export1).update(
+    #    NTC = int(myNTC1))     
 
             
-        Import_Export2 = 'FR<>ALL'
-        myNTC2 = request.POST['myNTC2']
-        NTC_ENR.objects.filter(Import_Export=Import_Export2).update(
-                 NTC = int(myNTC2))     
+    #    Import_Export2 = 'FR<>ALL'
+    #    myNTC2 = request.POST['myNTC2']
+    #    NTC_ENR.objects.filter(Import_Export=Import_Export2).update(
+     #            NTC = int(myNTC2))     
 
 
-        Import_Export3 = 'ALL<>BEL' 
-        myNTC3 = request.POST['myNTC3']
-        NTC_ENR.objects.filter(Import_Export=Import_Export3).update(
-            NTC = int(myNTC3))     
+    #    Import_Export3 = 'ALL<>BEL' 
+    #    myNTC3 = request.POST['myNTC3']
+    #    NTC_ENR.objects.filter(Import_Export=Import_Export3).update(
+     #       NTC = int(myNTC3))     
             
 # Changement des fichiers d'optimisation    
         OPTIM_ENR.objects.filter(pays=mypays1).update(
-            optim = verre_pulp_django.OPTIM(int(mytaux1)))  
+            optim = verre_pulp_django.OPTIM(int(mytaux1))
+            )  
             
             
         object_optim=OPTIM_ENR.objects.get(pays=mypays1)
@@ -99,11 +100,19 @@ def change_taux(request):
         data_optim = {
             'optimum': object_optim.optim
             }       
-            
+           
     return JsonResponse(data_optim)
 
+def change_pays(request):
+    if request.method == "POST":
 
+        choix_pays_0 = request.POST['choix_pays_0']
 
+        data_optim2 = {
+            'optimum2': choix_pays_0
+            }       
+           
+    return JsonResponse(data_optim2)
 # Test template
 
 def base(request):

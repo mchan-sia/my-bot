@@ -15,5 +15,6 @@ urlpatterns = [
     url(r'^$', views.Enr_list, name='plot'),
     url(r'^Enr/$', views.Enr_new, name='Enr_new'),
     url(r'^plot2/$', views.change_taux, name='change_taux'),
+    url(r'^plot3/$', views.change_pays, name='change_pays'),
     url(r'^base/$', views.base, name='plot'),
 ]
