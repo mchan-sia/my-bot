@@ -1,4 +1,5 @@
-Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/2010_alcohol_consumption_by_country.csv', function(err, rows){
+function makeplot_map(a) {
+Plotly.d3.csv(a, function(err, rows){
       function unpack(rows, key) {
           return rows.map(function(row) { return row[key]; });
       }
@@ -6,18 +7,18 @@ Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/2010_alc
  var data = [{
               type: 'choropleth',
               locationmode: 'country names',
-              locations: unpack(rows, 'location'),
+              locations: ["Belgium","France","Germany","Italy","Portugal","Luxembourg","Netherlands",
+			  "Spain","United Kingdom"],
               z: unpack(rows, 'alcohol'),
-              text: unpack(rows, 'location'),
-              colorscale: 'Blues',
-			  		  
-			    colorbar: {
-              title: 'Prix €/MWh',
-              thickness: 5,
-			  ticklen : 2,
-			  len : 0.6
 
-          },
+              colorscale: [
+                [0,'rgb(226, 189, 199)'],[0.35,'rgb(207, 145, 161)'],
+                [0.5,'rgb(188, 104, 126)'], [0.6,'rgb(146, 64, 85)'],
+                [0.7,'rgb(101, 45, 60)'],[1,'rgb(40, 18, 24)']],
+			  showscale :false	  
+
+		   
+		  
 		  
           }];
 
@@ -25,10 +26,19 @@ Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/2010_alc
           geo: {
 			scope: 'europe',
             projection: {
-              type: 'robinson'
-            }
-          },
-			width: 450,
+              type: 'mollweide',
+			  scale : 2
+            },
+          
+			center : {
+				lon  :0,
+				lat  :48
+				},
+			
+			
+			
+			},
+			width: 400,
 			height: 250,
 			  margin: {
 			l: 0,
@@ -62,3 +72,4 @@ Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/2010_alc
       Plotly.plot(myDiv_map, data, layout,config);
   });
 
+};
