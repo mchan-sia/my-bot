@@ -1,0 +1,377 @@
+﻿/* ###### CLASSES STYLE GENERALE ###### */
+
+/* Gestion des tailles de police */
+
+.fsize {
+	font-size: 2px;
+}
+.fsize1 {
+	font-size: 5px;
+}
+.fsize2 {
+	font-size: 7px;
+}
+.fsize3 {
+	font-size: 9px;
+}
+.fsize4 {
+	font-size: 10px;
+}
+.fsize5 {
+	font-size: 12px;
+}
+.fsize6 {
+	font-size: 15px;
+}
+.fsize7 {
+	font-size: 20px;
+}
+.fsize8 {
+	font-size: 25px;
+}
+.fsize9 {
+	font-size: 30px;
+}
+/* Gestion des marges */
+
+.voffset {
+	margin-top: 2px;
+}
+.voffset1 {
+	margin-top: 5px;
+}
+.voffset2 {
+	margin-top: 10px;
+}
+.voffset3 {
+	margin-top: 15px;
+}
+.voffset4 {
+	margin-top: 30px;
+}
+.voffset5 {
+	margin-top: 40px;
+}
+.voffset6 {
+	margin-top: 60px;
+}
+.voffset7 {
+	margin-top: 80px;
+}
+.voffset8 {
+	margin-top: 100px;
+}
+.voffset9 {
+	margin-top: 150px;
+}
+.voffset10 {
+	margin-top: 160px;
+}
+.loffset {
+	margin-left: 2px;
+}
+.loffset1 {
+	margin-left: 5px;
+}
+.loffset2 {
+	margin-left: 10px;
+}
+.loffset3 {
+	margin-left: 15px;
+}
+.loffset4 {
+	margin-left: 30px;
+}
+.loffset5 {
+	margin-left: 40px;
+}
+.loffset6 {
+	margin-left: 60px;
+}
+.loffset7 {
+	margin-left: 80px;
+}
+.loffset8 {
+	margin-left: 100px;
+}
+.loffset9 {
+	margin-left: 150px;
+}
+.roffset {
+	margin-right: 2px;
+}
+.roffset1 {
+	margin-right: 5px;
+}
+.roffset2 {
+	margin-right: 10px;
+}
+.roffset3 {
+	margin-right: 15px;
+}
+.roffset4 {
+	margin-right: 30px;
+}
+.roffset5 {
+	margin-right: 40px;
+}
+.roffset6 {
+	margin-right: 60px;
+}
+.roffset7 {
+	margin-right: 80px;
+}
+.roffset8 {
+	margin-right: 100px;
+}
+.roffset9 {
+	margin-right: 150px;
+}
+/* Centrer un bloc */
+
+.vertical-align {
+	display: flex;
+	align-items: center;
+}
+/* ###### CLASSES OBJET GENERALE ###### */
+
+/* Pour la création d'un panel transparent (pour un bouton par exemple)  */
+
+.panel.panel-default.panel-no-outline {
+	border: 0;
+
+}
+/* Pour la création d'un tableau interactif (cellule verte, bleue, orange et rouge)  */
+
+.cell_green {
+	background-image: -webkit-linear-gradient(top, #dff0d8 0, #c8e5bc 100%);
+	background-image: -o-linear-gradient(top, #dff0d8 0, #c8e5bc 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#dff0d8), to(#c8e5bc));
+	background-image: linear-gradient(to bottom, #dff0d8 0, #c8e5bc 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdff0d8', endColorstr='#ffc8e5bc', GradientType=0);
+	background-repeat: repeat-x;
+	border-color: #b2dba1
+}
+.cell_green:hover {
+	background-image: -webkit-linear-gradient(top, #C2E8B3 0, #6ABD48 100%);
+	background-image: -o-linear-gradient(top, #C2E8B3 0, #6ABD48 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#C2E8B3), to(#6ABD48));
+	background-image: linear-gradient(to bottom, #C2E8B3 0, #6ABD48 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdff0d8', endColorstr='#ffc8e5bc', GradientType=0);
+	background-repeat: repeat-x;
+	border-color: #b2dba1;
+	cursor: pointer;
+}
+.cell_blue {
+	background-image: -webkit-linear-gradient(top, #d9edf7 0, #b9def0 100%);
+	background-image: -o-linear-gradient(top, #d9edf7 0, #b9def0 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#d9edf7), to(#b9def0));
+	background-image: linear-gradient(to bottom, #d9edf7 0, #b9def0 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9edf7', endColorstr='#ffb9def0', GradientType=0);
+	background-repeat: repeat-x;
+	border-color: #9acfea
+}
+.cell_blue:hover {
+	background-image: -webkit-linear-gradient(top, #C0E0F0 0, #79BBDB 100%);
+	background-image: -o-linear-gradient(top, #C0E0F0 0, #79BBDB 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#C0E0F0), to(#79BBDB));
+	background-image: linear-gradient(to bottom, #C0E0F0 0, #79BBDB 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9edf7', endColorstr='#ffb9def0', GradientType=0);
+	background-repeat: repeat-x;
+	border-color: #9acfea;
+	cursor: pointer;
+}
+.cell_orange {
+	background-image: -webkit-linear-gradient(top, #fcf8e3 0, #f8efc0 100%);
+	background-image: -o-linear-gradient(top, #fcf8e3 0, #f8efc0 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fcf8e3), to(#f8efc0));
+	background-image: linear-gradient(to bottom, #fcf8e3 0, #f8efc0 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcf8e3', endColorstr='#fff8efc0', GradientType=0);
+	background-repeat: repeat-x;
+	border-color: #f5e79e
+}
+.cell_orange:hover {
+	background-image: -webkit-linear-gradient(top, #FAF2CA 0, #EBD66A 100%);
+	background-image: -o-linear-gradient(top, #FAF2CA 0, #EBD66A 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FAF2CA), to(#EBD66A));
+	background-image: linear-gradient(to bottom, #FAF2CA 0, #EBD66A 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcf8e3', endColorstr='#fff8efc0', GradientType=0);
+	background-repeat: repeat-x;
+	border-color: #f5e79e;
+	cursor: pointer;
+}
+.cell_red {
+	background-image: -webkit-linear-gradient(top, #f2dede 0, #e7c3c3 100%);
+	background-image: -o-linear-gradient(top, #f2dede 0, #e7c3c3 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f2dede), to(#e7c3c3));
+	background-image: linear-gradient(to bottom, #f2dede 0, #e7c3c3 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0);
+	background-repeat: repeat-x;
+	border-color: #dca7a7
+}
+.cell_red:hover {
+	background-image: -webkit-linear-gradient(top, #F5CBCB 0, #D98989 100%);
+	background-image: -o-linear-gradient(top, #F5CBCB 0, #D98989 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#F5CBCB), to(#D98989));
+	background-image: linear-gradient(to bottom, #F5CBCB 0, #D98989 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0);
+	background-repeat: repeat-x;
+	border-color: #dca7a7;
+	cursor: pointer;
+}
+.cell_white {
+	background-image: -webkit-linear-gradient(top, #FAFCFC 0, #EDEFF0 100%);
+	background-image: -o-linear-gradient(top, #FAFCFC 0, #EDEFF0 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#FAFCFC), to(#EDEFF0));
+	background-image: linear-gradient(to bottom, #FAFCFC 0, #EDEFF0 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0);
+	background-repeat: repeat-x;
+	border-color: #dca7a7
+}
+.cell_white:hover {
+	background-image: -webkit-linear-gradient(top, #E8EAEB 0, #DEDEDE 100%);
+	background-image: -o-linear-gradient(top, #E8EAEB 0, #DEDEDE 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#E8EAEB), to(#DEDEDE));
+	background-image: linear-gradient(to bottom, #E8EAEB 0, #DEDEDE 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0);
+	background-repeat: repeat-x;
+	border-color: #dca7a7;
+	cursor: pointer;
+}
+.progress {
+	position: relative;
+}
+.progress span {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	z-index: 2;
+	color: rgb(51, 51, 51);
+	font-size: 12px;
+}
+/* ###### CLASSES POUR COLONNE DE DESCRIPTION ###### */
+
+/* Titre des différents blocs de la description */
+
+.colonne_contenu .titre {
+	margin-left: 0px;
+	text-align: left;
+	vertical-align: middle;
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #106173;
+	font-weight: none;
+	display: inline;
+}
+/* Titre de chaque caractéristique de la description */
+
+.colonne_contenu .dl-horizontal .sous_titre {
+	width: auto;
+	margin-left: 10px;
+	font-weight: 100;
+	text-align: left;
+	vertical-align: middle;
+	font-size: 12px;
+	text-decoration: none;
+	color: #106173;
+}
+/* Contenu de chaque caractéristique de la description */
+
+.colonne_contenu .dl-horizontal .description {
+	width: auto;
+	margin-left: 140px;
+	display: block;
+	text-align: left;
+	vertical-align: middle;
+	font-size: 12px;
+	text-decoration: none;
+	color: black;
+}
+/* Surcharge du dl de bootstrap pour l'affichage des descriptions PLIC et Prod */
+
+.colonne_contenu .dl-horizontal {
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+/* Carte géo (apercu) */
+
+.map_colonne {
+	width: 100%;
+	height: 350px;
+}
+/* Carte géo (complète)  */
+
+.map_colonne_full {
+	/*position:absolute;*/
+	border: 1px solid #898989;
+	margin: 0;
+	width: 100%;
+	height: 80%;
+	z-index: 1000;
+}
+/* ###### CLASSES POUR IMAGES ###### */
+
+/* Image centrée  */
+
+.image-center {
+	margin: 0 auto;
+}
+/* Petit logo clickable */
+
+.logo-clickable {
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	transition: all 0.5s;
+	transition-timing-function: cubic-bezier(.07, 1.41, .82, 1.41);
+	display: inline-block;
+	width: 40%;
+	text-decoration: none;
+	cursor: pointer;
+	-webkit-filter: grayscale(1) blur(0px);
+	-moz-filter: grayscale(1) blur(0px);
+	-o-filter: grayscale(1) blur(0px);
+	-ms-filter: grayscale(1) blur(0px);
+	filter: grayscale(1) blur(0px);
+}
+/* ###### CLASSES POUR ONGLET ###### */
+
+.nav.nav-tabs li {
+	display: table-cell;
+	list-style-type: none;
+	vertical-align: middle;
+	margin-right: 2px;
+	margin-left: 2px;
+	margin-bottom: 0px;
+}
+.nav.nav-tabs li a {
+	color: #555;
+	font-size: 80%;
+}
+.nav.nav-tabs li.active a {
+	color: #212121;
+	font-size: 100%;
+}
+.img-hover:hover {
+	opacity: 0.8;
+}
+.img-zoom {
+	position: absolute;
+	width: 30%;
+	z-index: 999;
+}
+#menu.navbar {
+	margin-bottom: 0;
+}
+/* Titre table act nat */
+
+.panel-heading.title-table {
+	margin-bottom: 1%;
+}
+.panel-heading {
+	padding: 5px 10px;
+}
+.panel-body {
+	padding: 10px;
+}
