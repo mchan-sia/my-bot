@@ -874,15 +874,7 @@ button.ui-button::-moz-focus-inner {
 	padding: 1em 1.4em;
 	background: none;
 }
-.ui-tooltip {
-	padding: 8px;
-	position: absolute;
-	z-index: 9999;
-	max-width: 300px;
-}
-body .ui-tooltip {
-	border-width: 2px;
-}
+
 /* Component containers
 ----------------------------------*/
 .ui-widget {
@@ -931,13 +923,17 @@ body .ui-tooltip {
 
 /* We use html here because we need a greater specificity to make sure disabled
 works properly when clicked or hovered */
+
+
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-	border: 1px solid #c5c5c5;
-	background: #f6f6f6;
+	border: 1px solid #c5c5c5 ;
+	background: #c5c5c5;
 	font-weight: normal;
 	color: #454545;
 }
+
+
 .ui-state-default a,
 .ui-state-default a:link,
 .ui-state-default a:visited,

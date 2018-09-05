@@ -166,10 +166,42 @@ td.widget_up {
 	filter: grayscale(1) blur(0px);
 }
 .panel-heading {
-	background-color: #660033 !important;
-	color: #FFFFFF !important;
+	background-color: #660033 ;
+	color: #FFFFFF ;
+}
+#parametre_1.panel-heading  {
+	background-color: #22427C ;
+	color: #FFFFFF ;
+}
+#parametre_2.panel-heading  {
+	background-color: #22427C ;
+	color: #FFFFFF ;
+
+
 }
 #main-content {
 	background-color: #fff;
 	padding-top: 10px;
 }
+
+#custom-handle_taux1{
+    width: 2em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+    background-color: #22427C ;
+    color: #FFFFFF ;
+  }
+
+#custom-handle_NTC1{
+    width: 2em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+    background-color: #22427C ;
+    color: #FFFFFF ;
+  }

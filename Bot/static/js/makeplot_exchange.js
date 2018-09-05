@@ -1,9 +1,9 @@
 function makeplot_exchange(a) {
-  Plotly.d3.csv(a, function(data){ processData(data) } );
+  Plotly.d3.csv(a, function(data){ processData_exchange(data) } );
 
 };
 
-function processData(allRows) {
+function processData_exchange(allRows) {
 
   var x = [], y = [];
 
@@ -14,10 +14,10 @@ function processData(allRows) {
   }
   x = x.reverse();
   y = y.reverse();
-  makePlotly(x, y);
+  makePlotly_exchange(x, y);
 };
 
-function makePlotly(x, y){
+function makePlotly_exchange(x, y){
   var plotDiv = document.getElementById("plot");
   var traces = [{
 	type: 'bar',
@@ -38,7 +38,7 @@ function makePlotly(x, y){
     range: [0, 1],
   },
   annotations: [],
-  width: 280,
+
 			height: 200,
 			  margin: {
 			l: 80,
@@ -72,7 +72,7 @@ for ( var i = 0 ; i < x.length ; i++ ) {
   var result = {
     xref: 'x1',
     yref: 'y1',
-    x: x[i]*1 + 0.15,
+    x: x[i]*1 + 0.05,
     y: y[i],
     text: x[i]*100 + '%',
     font: {

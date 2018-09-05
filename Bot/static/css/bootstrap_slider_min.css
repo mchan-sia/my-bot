@@ -4790,8 +4790,8 @@ a.list-group-item-danger.active, a.list-group-item-danger.active:focus, a.list-g
 	border-color: #ddd
 }
 .panel-default>.panel-heading {
-	color: #333;
-	background-color: #f5f5f5;
+	color: #FFFFFF ;
+	
 	border-color: #ddd
 }
 .panel-default>.panel-heading+.panel-collapse>.panel-body {
@@ -5091,7 +5091,7 @@ button.close {
 	z-index: 1070;
 	display: block;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 12px;
+	font-size: 10px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 1.42857143;
@@ -5107,7 +5107,9 @@ button.close {
 	white-space: normal;
 	filter: alpha(opacity=0);
 	opacity: 0;
-	line-break: auto
+	line-break: auto;
+	;
+
 }
 .tooltip.in {
 	filter: alpha(opacity=90);
@@ -5118,8 +5120,7 @@ button.close {
 	margin-top: -3px
 }
 .tooltip.right {
-	padding: 0 5px;
-	margin-left: 3px
+
 }
 .tooltip.bottom {
 	padding: 5px 0;
@@ -5128,6 +5129,7 @@ button.close {
 .tooltip.left {
 	padding: 0 5px;
 	margin-left: -3px
+	;
 }
 .tooltip-inner {
 	max-width: 200px;

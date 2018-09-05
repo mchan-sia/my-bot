@@ -1,24 +1,28 @@
 
 function makeplot_load_curve(a,date_debut,date_fin) {
-  Plotly.d3.csv(a, function(data){ processData_load_curve(data) } );
+console.log("date",date_debut,date_fin)
+  Plotly.d3.csv(a, function(data){ processData_load_curve(data, date_debut, date_fin) } );
 
 };
 
-function processData_load_curve(allRows) {
-console.log(allRows)
-  var datetime=[], conso = [];
+function processData_load_curve(allRows,date_debut,date_fin) {  
+var datetime=[], conso = [];
 
   for (var i=0; i<allRows.length; i++) {
     row = allRows[i];
 	var date = row["date"].split("/");
 	var time = row["heure"].split(":");
-	datetime.push(new Date(date[2], parseInt(date[1]) - 1, date[0], time[0], time[1]));
-    conso.push(row["conso"]);
+	var dt = new Date(date[2], parseInt(date[1]) - 1, date[0], time[0], time[1]);
+	
+	if ((date_debut <= dt) && (dt <= date_fin)) {
+		datetime.push(dt);
+		conso.push(row["conso"]);
+		}
   }
-  console.log(datetime);
-  console.log(conso);
   makePlotly_load_curve(datetime, conso);
 };
+
+
 
 
 function makePlotly_load_curve(datetime, conso){
