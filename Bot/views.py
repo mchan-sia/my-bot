@@ -118,3 +118,7 @@ def change_pays(request):
 def base(request):
     template="base.html"
     return render(request,template)
+
+def plot_Prix(request):
+    template="plot_Prix.html"
+    return render(request,template)
