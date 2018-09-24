@@ -1,5 +1,8 @@
- $( function () {
+
+
+
  
+ $( function () {
  
  
 				$('#info_bulle_1').tooltip({
@@ -49,8 +52,8 @@
 
 					range:true,
 					min: new Date("January 1, 2015 01:00:00").getTime() ,
-					max: new Date("January 9, 2015 00:30:00").getTime(),
-					values:[new Date("January 1, 2015 00:00:00").getTime() , new Date("January 8, 2015 23:30:00").getTime() ],
+					max: new Date("January 8, 2015 00:30:00").getTime(),
+					values:[new Date("January 1, 2015 00:00:00").getTime() , new Date("January 7, 2015 23:30:00").getTime() ],
 					step:1800000,
 					change:function(event, ui){
 					  $( "#state" ).html( (new Date(ui.values[ 0 ]).toUTCString() ) + " - " + (new Date(ui.values[ 1 ] )).toUTCString() );
@@ -68,10 +71,10 @@
 				 
 				 $("#date_debut").val(new Date("January 1, 2015 01:00:00"));
 				 
-				 $("#date_fin").val(new Date("January 8, 2015 23:30:00"));
+				 $("#date_fin").val(new Date("January 7, 2015 23:30:00"));
 				  
 				 $("#date_debut").html("Thu, 01 Jan 2015 00:00:00 GMT");
-				 $("#date_fin").html("Thu, 08 Jan 2015 23:30:00 GMT");
+				 $("#date_fin").html("Thu, 07 Jan 2015 23:30:00 GMT");
 				
 				
 				

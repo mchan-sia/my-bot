@@ -18,6 +18,7 @@ function processData_countries(allRows) {
 };
 
 function makePlotly_countries(x, y){
+  var colors = ['rgb(240,221,225)', 'rgb(194,148,167)', 'rgb(181,87,109)', 'rgb(102,0,51)'];
   var plotDiv = document.getElementById("plot");
   var traces = [{
 	type: 'bar',
@@ -25,7 +26,7 @@ function makePlotly_countries(x, y){
     y: y,
 	orientation: 'h',
 	marker: {
-		color: 'rgb(102,0,51)',
+		color: colors,
 		width: 0
 		},
 			width: [0.2, 0.2, 0.2, 0.2]
@@ -35,14 +36,13 @@ function makePlotly_countries(x, y){
   title: '',
   xaxis1: {
 	tickformat: ',.0%',
-    range: [0, 0.1],
+
   },
   annotations: [],
-    width: 150,
-			height: 300,
+			height: 250,
 			  margin: {
 			l: 50,
-			r: 20,
+			r: 30,
 			b: 30,
 			t: 0,
 			pad: 4

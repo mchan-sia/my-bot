@@ -1,15 +1,10 @@
-function init_infobulle() {
-    //gestion des infobulle
-    $(function () {
-        $("#tooltip").tooltip({
-        });
-    });
-    $(".info").each(function () {
-        $(this).tooltip({content: $(this).attr("title"),
-            show: {
-                effect: "slideDown",
-                delay: 250
-            }
-        });
-    });
-}
+
+
+var width = $(window).width();
+$(window).on('resize', function(){
+   if($(this).width() != width){
+      width = $(this).width();
+       console.log(width);
+   }
+});
+

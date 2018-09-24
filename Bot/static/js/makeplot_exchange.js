@@ -18,6 +18,10 @@ function processData_exchange(allRows) {
 };
 
 function makePlotly_exchange(x, y){
+
+  
+  var colors = ['rgb(240,221,225)', 'rgb(224,186,194)', 'rgb(215,165,176)', 'rgb(205,141,155)',
+   'rgb(180,0,90)', 'rgb(150,0,75)', 'rgb(102,0,51)'];
   var plotDiv = document.getElementById("plot");
   var traces = [{
 	type: 'bar',
@@ -25,7 +29,17 @@ function makePlotly_exchange(x, y){
     y: y,
 	orientation: 'h',
 	marker: {
-		color: 'rgb(102,0,51)',
+		color: colors,
+		width: 0
+		}
+  }];
+  var traces = [{
+	type: 'bar',
+    x: x,
+    y: y,
+	orientation: 'h',
+	marker: {
+		color: colors,
 		width: 0
 		},
 	width: [0.4, 0.4, 0.4, 0.4, 0.4,0.4,0.4]
@@ -39,7 +53,7 @@ function makePlotly_exchange(x, y){
   },
   annotations: [],
 
-			height: 200,
+			height: 180,
 			  margin: {
 			l: 80,
 			r: 50,

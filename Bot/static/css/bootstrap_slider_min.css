@@ -1043,11 +1043,11 @@ button, input, select, textarea {
 	line-height: inherit
 }
 a {
-	color: #337ab7;
+	color: #555;
 	text-decoration: none
 }
 a:focus, a:hover {
-	color: #23527c;
+	color: #555;
 	text-decoration: underline
 }
 a:focus {
@@ -1153,7 +1153,7 @@ hr {
 	font-size: 14px
 }
 .h6, h6 {
-	font-size: 12px
+	font-size: 10px
 }
 p {
 	margin: 0 0 10px
@@ -2100,7 +2100,8 @@ th {
 	padding: 8px;
 	line-height: 1.42857143;
 	vertical-align: top;
-	border-top: 1px solid #ddd
+	border-top: 1px solid #ddd ;
+	border-bottom: 1px solid #ddd ;
 }
 .table>thead>tr>th {
 	vertical-align: bottom;
@@ -3402,7 +3403,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	max-width: none
 }
 .nav-tabs {
-	border-bottom: 1px solid #ddd
+
 }
 .nav-tabs>li {
 	float: left;
@@ -3418,11 +3419,11 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	border-color: #eee #eee #ddd
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-	color: #555;
+	color: #538cbf;
 	cursor: default;
 	background-color: #fff;
 	border: 1px solid #ddd;
-	border-bottom-color: transparent
+
 }
 .nav-tabs.nav-justified {
 	width: 100%;
@@ -4026,7 +4027,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 .pagination {
 	display: inline-block;
 	padding-left: 0;
-	margin: 20px 0;
+	margin: 0px 0;
 	border-radius: 4px
 }
 .pagination>li {

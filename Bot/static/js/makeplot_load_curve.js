@@ -36,9 +36,8 @@ function makePlotly_load_curve(datetime, conso){
 		width: 0
 		}
   }];
-   var layout = {
-
-			height: 200,
+   var layout = {			
+			height: 150,
 			  margin: {
 			l: 50,
 			r: 10,

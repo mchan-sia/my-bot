@@ -16,14 +16,14 @@ function processData_installed_capa(allRows) {
 };
 
 function makePlotly_installed_capa(x, y){
-
+  var colors = ['rgb(0,0,0)', 'rgb(137,131,122)','rgb(102,0,51)','rgb(48,245,15)','rgb(243,243,17)','rgb(43,29,231)','rgb(24,196,236)','rgb(255,153,0)']
   var traces = [{
 	type: 'bar',
     x: x,
     y: y,
 	orientation: 'v',
 	marker: {
-		color: 'rgb(102,0,51)',
+		color: colors,
 		width: 0
 		}
   }];
@@ -31,12 +31,11 @@ function makePlotly_installed_capa(x, y){
  var layout = {
   title: '',
   annotations: [],
-  width: 450,
-			height: 200,
+			height: 180,
 			  margin: {
-			l: 50,
+			l: 20,
 			r: 10,
-			b: 70,
+			b: 80,
 			t: 10,
 			pad: 4
 			}

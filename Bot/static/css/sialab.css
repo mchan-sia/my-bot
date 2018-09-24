@@ -1,7 +1,6 @@
 /* GENERAL */
 
 html, body {
-	height: 100%;
 	width: 100%;
 	margin: 0;
 	padding: 0;
@@ -205,3 +204,7 @@ td.widget_up {
     background-color: #22427C ;
     color: #FFFFFF ;
   }
+
+
+
+

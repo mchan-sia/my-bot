@@ -31,18 +31,18 @@ Plotly.d3.csv(a, function(err, rows){
             },
           
 			center : {
-				lon  :0,
+				lon  :10,
 				lat  :48
 				},
 			
 			
 			
 			},
-			width: 400,
+			width: 330,
 			height: 250,
 			  margin: {
-			l: 0,
-			r: 50,
+			l: 10,
+			r: 0,
 			b: 0,
 			t: 0,
 			pad: 4
